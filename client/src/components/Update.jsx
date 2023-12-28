@@ -31,7 +31,7 @@ export async function action({ request, params }) {
     };
 
     console.log(requestBody);
-    const apiUrl = `http://localhost:5000/mahasiswa/${id}`;
+    const apiUrl = `https://form-mahasiswa-api.vercel.app/mahasiswa/${id}`;
     await axios.patch(apiUrl, requestBody);
 
     return { message: "data berhasil diupdate" };
@@ -44,7 +44,7 @@ export async function action({ request, params }) {
 export async function loader({ params }) {
   const id = params?.id;
   try {
-    const apiUrl = `http://localhost:5000/mahasiswa/id/${id}`;
+    const apiUrl = `https://form-mahasiswa-api.vercel.app/mahasiswa/${id}`;
     const response = await axios.get(apiUrl);
 
     return response.data;
