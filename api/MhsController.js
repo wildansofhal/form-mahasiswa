@@ -29,11 +29,10 @@ const saveMhs = async (req, res) => {
 
 const updateMhs = async (req, res) => {
   try {
-    const updatedMhs = await Mhs.updateOn;
-    e({ _id: req.params.id }, { $set: req.body });
+    const updatedMhs = await Mhs.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true });
     res.status(200).json(updatedMhs);
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    res.status(400).json({ message: 'Gagal mengupdate data mahasiswa', error: error.message });
   }
 };
 

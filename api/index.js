@@ -22,7 +22,7 @@ mongoose
 
   app.use(
     cors({
-      origin: ["http://localhost:5173", "https://form-mahasiswa.vercel.app/mahasiswa"],
+      origin: ["http://localhost:5173", "https://form-mahasiswa-sophal.vercel.app/"],
       methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
       credentials: true,
       optionsSuccessStatus: 204,

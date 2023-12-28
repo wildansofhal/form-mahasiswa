@@ -26,11 +26,12 @@ export async function action({ request, params }) {
 export async function loader({ params }) {
   const id = params?.id;
   try {
-    const apiUrl = `https://form-mahasiswa-api.vercel.app/mahasiswa/${id}`;
+    const apiUrl = `https://form-mahasiswa-api.vercel.app/mahasiswa/id/${id}`;
     const response = await axios.get(apiUrl);
 
     return response.data;
   } catch (error) {
+    console.log(error)
     return error;
   }
 }
