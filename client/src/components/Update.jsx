@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Form, Link, useActionData, useLoaderData } from "react-router-dom";
+import { Form, Link, redirect, useActionData, useLoaderData } from "react-router-dom";
 
 export async function action({ request, params }) {
   try {
@@ -34,7 +34,7 @@ export async function action({ request, params }) {
     const apiUrl = `https://form-mahasiswa-api.vercel.app/mahasiswa/${id}`;
     await axios.patch(apiUrl, requestBody);
 
-    return { message: "data berhasil diupdate" };
+    return redirect("/");
   } catch (error) {
     console.log(error);
     return { message: "data gagal diupdate" };

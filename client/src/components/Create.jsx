@@ -61,7 +61,6 @@ export async function loader({ params }) {
 export default function Create() {
   const mhs = useLoaderData();
   const { status } = useActionData() || "";
-  console.log(mhs, status);
   const [mahasiswa, setMahasiswa] = useState("");
   const [nim, setNim] = useState("");
   const [jurusan, setJurusan] = useState("");
@@ -219,8 +218,7 @@ export default function Create() {
             borderRadius: "1rem",
           }}
         >
-        
-          {mhs?.map((mahasiswa) => (
+          {mhs.map((mahasiswa) => (
             <div key={mahasiswa._id}
               style={{
                 margin: "0.5rem 0",

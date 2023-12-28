@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData, Link, Form } from "react-router-dom";
+import { useLoaderData, Link, Form,redirect} from "react-router-dom";
 import axios from "axios";
 
 export async function action({ request, params }) {
@@ -8,17 +8,15 @@ export async function action({ request, params }) {
     let message;
     try {
         if (confirm("Hapus data ini?")) {
-            const apiUrl = `https://form-mahasiswa-api.vercel.app/mahasiswa`;
+            const apiUrl = `https://form-mahasiswa-api.vercel.app/mahasiswa/${id}`;
             const response = await axios.delete(apiUrl);
             message= "data berhasil dihapus";
-            return redirect("/");
-        }
-        return redirect(`/${id}`);
+            return redirect(`/`);
+          }
+        return {message};
     } catch (error) {
         console.log(error);
         message= "data gagal dihapus";
-        return redirect(`/${id}`);
-    } finally {
         return {message};
     }
 }
