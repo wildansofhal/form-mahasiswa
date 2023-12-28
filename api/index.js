@@ -22,13 +22,12 @@ mongoose
 
   app.use(
     cors({
-      origin: ["http://localhost:5173", "https://form-mahasiswa-sophal.vercel.app/"],
+      origin: "*",
       methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
       credentials: true,
       optionsSuccessStatus: 204,
     })
-  );
-  
+  );  
 
 app.use(express.json());
 app.use(mhsRoute);
